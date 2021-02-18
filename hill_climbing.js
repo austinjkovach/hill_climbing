@@ -41,6 +41,8 @@ algorithm Continuous Space Hill Climbing(f, v, l, u, a, e) is
 
  */
 
+// require('math.js')
+
 function continuous_space_hill_climbing(
   f,
   v,
@@ -59,7 +61,7 @@ function continuous_space_hill_climbing(
     acceleration,
   ];
 
-  let bestScore = f(0);
+  let bestScore = f(0); // TODO EVAL() from math.js
 
   while (true) {
     let beforeScore = bestScore;
@@ -71,7 +73,7 @@ function continuous_space_hill_climbing(
       candidates.forEach(candidate => {
         let step = stepSize[i] * candidate;
         currentPoint[i] = beforePoint + step;
-        score = f(currentPoint);
+        score = f(currentPoint); // TODO EVAL() from math.js
         if (score > bestScore) {
           bestScore = score;
           bestStep = step;
@@ -95,3 +97,5 @@ function continuous_space_hill_climbing(
 
 const getRandom = (min, max) =>
   Math.floor(Math.random() * (max + 1 - min) + min);
+
+// TODO: Add random-repeat
